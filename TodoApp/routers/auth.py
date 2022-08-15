@@ -132,7 +132,7 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
                                  db: Session = Depends(get_db)):
     user = authenticate_user(form_data.username, form_data.password, db)
     if not user:
-        raise False
+        return False
     token_expires = timedelta(minutes=60)
     token = create_access_token(user.username,
                                 user.id,
