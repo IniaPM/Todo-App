@@ -1,6 +1,8 @@
 import sys
 sys.path.append("..")
+
 from starlette.responses import RedirectResponse
+
 from fastapi import Depends, HTTPException, status, APIRouter, Request, Response, Form
 from pydantic import BaseModel
 from typing import Optional
@@ -11,8 +13,10 @@ from database import SessionLocal, engine
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from datetime import datetime, timedelta
 from jose import jwt, JWTError
+
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+
 
 SECRET_KEY = "KlgH6AzYDeZeGwD288to7913vTHT8wp7"
 ALGORITHM = "HS256"
