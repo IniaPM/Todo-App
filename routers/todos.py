@@ -86,7 +86,7 @@ async def edit_todo(request: Request, todo_id: int, db: Session = Depends(get_db
     return templates.TemplateResponse("edit-todo.html", {"request": request, "todo": todo, "user": user})
 
 
-@router.post("/edit-todo/{todo-id}", response_class=HTMLResponse)
+@router.post("/edit-todo/{todo_id}", response_class=HTMLResponse)
 async def edit_todo_commit(request: Request, todo_id: int, title: str = Form(...),
                            description: str = Form(...), priority: int = Form(...),
                            db: Session = Depends(get_db)):
