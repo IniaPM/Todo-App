@@ -223,4 +223,12 @@ Deployment
 •	Created a file called requirements.txt, which holds all of the dependencies for the application. I used a quick trick where I typed ‘pip freeze’ into the terminal, which showed all the dependencies for the entire application. I copied the dependencies and pasted them into requirements.txt
 •	The last file created was a Procfile, which is very specific to Heroku. This file specifies certain things for Heroku to know what the application is and exactly how it is to be deployed.
 •	Added these 3 files (plus this README.md file) to the main branch and then pushed the main branch to the git repo.
+3.  Had issues with deployment because of a space before -5000 in Procfile, and then because of the database not having been changed to sqlite (from MySQL) in database.py. Once these changes were made, deployment was successful.
+4.	Heroku PostgeSQL: Production Database
+•	Attached Heroku PostgreSQL to the todo application after it was deployed
+•	Had to import os into the database.py file
+•	In database.py, changed SQLALCHEMY_DATABASE_URL = from "sqlite:///./todos.db" to os.environ.get('DATABASE_URL')
+•	An if statement was inserted below SQLALCHEMY_DATABASE_URL = os.environ.get('DATABASE_URL')
+•	, connect_args={"check_same_thread": False} was removed from the engine as it is a specific argument for sqlite
+
 
