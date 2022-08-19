@@ -201,8 +201,7 @@ Web pages now have functionality, redirecting the user to different pages of the
 
 15.	Enhanced application so a user can change their password.
 •	Created new template for change password called ‘edit-user-password.html’
-•	Created a new users.py file within the routers directory
-•	Created new route for password change called users.py
+•	Created a new route (within routers directory) for password change called users.py
 •	Added ability to verify password and then change the password
 
 18/08/2022
