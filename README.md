@@ -109,7 +109,7 @@ MySQL DBMS
 •	Created 2 new tables inside the database, called ‘users’ and ‘todos’
 3.	Connected Todo App to todo database using MySQL and FastAPI
 •	First, installed a new dependency called ‘pymysql’ within the FastAPI environment, using pip
-•	[Assume that this changes from sqlite to mysql, rather than from postgresql to mysql] Changed the SQLALCHEMY_DATABASE_URL from “sqlite:///./todos.db” (in the database.py file) to “mysql+pymysql://root:Test1234@127.0.0.1:3306/todoapp”
+•	[Assume that this changes from sqlite to mysql, rather than from postgresql to mysql] Changed the SQLALCHEMY_DATABASE_URL from “sqlite:///./todos.db” (in the database.py file) to “mysql+pymysql://root:********@127.0.0.1:3306/todoapp”
 4.	Created two new users in the auth app
 •	Selected users table in MySQL to view the new insertions in users table
 5.	Created todos to go into mysql database 
@@ -216,7 +216,7 @@ Web pages now have functionality, redirecting the user to different pages of the
 Deployment
 
 1.	Created Heroku account and connected GitHub account to Heroku.
-•	Connected Heroku to the specific repository
+•	Connected Heroku to the specific repository - Todo-App
 2.	Created the files that Heroku is dependent on to deploy on to a dyno (virtual machine), in order for the application to go live.
 •	Created a file called runtime.txt in the parent FastAPI directory. This file simply contains the version of Python that I wanted Heroku to install on its dyno for the application to run properly
 •	Created a file called requirements.txt, which holds all of the dependencies for the application. I used a quick trick where I typed ‘pip freeze’ into the terminal, which showed all the dependencies for the entire application. I copied the dependencies and pasted them into requirements.txt
@@ -228,6 +228,16 @@ Deployment
 •	Had to import os into the database.py file
 •	In database.py, changed SQLALCHEMY_DATABASE_URL = from "sqlite:///./todos.db" to os.environ.get('DATABASE_URL')
 •	An if statement was inserted below SQLALCHEMY_DATABASE_URL = os.environ.get('DATABASE_URL')
-•	, connect_args={"check_same_thread": False} was removed from the engine as it is a specific argument for sqlite
+•	'connect_args={"check_same_thread": False}' was removed from the engine as it is a specific argument for sqlite
+•	Added/committed changes and pushed them to the Todo-App repo main branch
+5.	Deployed main branch of app repo again
+•	This time when logging an existing user in, login details returned an ‘Incorrect Username or Password’, because now an entirely new database is being used
+•	Therefore, I registered a new user then logged in, created a new todo, then logged out.
+6.	Note: With using a free-tier plan, Heroku will shut the application down eventually. If I want the application to stay up forever, I need to pay for it with dynos.
+7.	In the Heroku application deployment page, I clicked on Overview, then Heroku Postgres, I was able to view the health and utilization of the database – connection, rows, data size and tables information.
 
+Summary of Building an Application Process: 
 
+Created a FastAPI application, then added the app to Git and deployed app to GitHub, then finally deployed this application to the world using Heroku.
+
+Final result/website: https://iniap-todo-app.herokuapp.com/auth/
