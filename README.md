@@ -11,7 +11,7 @@ Todo App/Database File
 5.	Created session maker.
 6.	Created base which allows creation of each database model, as a base class can be inherited in future files.
 •	To be able to create a base, declarative_base needed to be imported from sqlalchemy.ext.declarative
-7.	Initiated git repo inside FastAPI folder.
+7.	Initiated git repo inside of the (parent) FastAPI folder.
 
 Models File
 
