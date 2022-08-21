@@ -131,11 +131,11 @@ Routing
 
 Organized APIs with prefixes and tags:
 
-4.	I was not able to start up the uvicorn server from the time I had started the routing process until prefix="/auth", tags=["auth"], responses={401: {"user": "Not authorized"}} were passed in as parameters to router = APIRouter() within the auth.py file.
-5.	Also passed in prefix="/todos", tags=["todos"], responses={404: {"description": "Not found"}} as parameters to router = APIRouter() within the todos.py file.
-6.	External Routing: Created a company directory and within the directory, created a companyapis.py file. 
+1.	I was not able to start up the uvicorn server from the time I had started the routing process until prefix="/auth", tags=["auth"], responses={401: {"user": "Not authorized"}} were passed in as parameters to router = APIRouter() within the auth.py file.
+2.	Also passed in prefix="/todos", tags=["todos"], responses={404: {"description": "Not found"}} as parameters to router = APIRouter() within the todos.py file.
+3.	External Routing: Created a company directory and within the directory, created a companyapis.py file. 
 •	Rather than passing in tags, prefixes and responses to the router within the companyapis.py file, this was instead done in the main.py file.
-7.	Created a new users.py file within the routers directory.
+4.	Created a new users.py file within the routers directory.
 •	Created 3 GET APIs
 •	Created 1 PUT APIs
 •	Created 1 DELETE APIs
@@ -144,7 +144,7 @@ Code Clean Up
 1.	Deleted company directory
 2.	Deleted users.py
 
-Full Stack
+FULL STACK
 
 1.	Merged the routing branch into master
 2.	Created a new branch called full_stack from the HEAD of Master
@@ -199,7 +199,7 @@ Web pages now have functionality, redirecting the user to different pages of the
 
 16/08/2022
 
-15.	Enhanced application so a user can change their password.
+1.	Enhanced application so a user can change their password.
 •	Created new template for change password called ‘edit-user-password.html’
 •	Created a new route (within routers directory) for password change called users.py
 •	Added ability to verify password and then change the password
@@ -236,7 +236,7 @@ Deployment
 6.	Note: With using a free-tier plan, Heroku will shut the application down eventually. If I want the application to stay up forever, I need to pay for it with dynos.
 7.	In the Heroku application deployment page, I clicked on Overview, then Heroku Postgres, I was able to view the health and utilization of the database – connection, rows, data size and tables information.
 
-Summary of Building an Application Process: 
+Summary of the Process for Developing an Application:
 
 Created a FastAPI application, then added the app to Git and deployed app to GitHub, then finally deployed this application to the world using Heroku.
 
